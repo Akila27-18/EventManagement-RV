@@ -1,12 +1,8 @@
 import React, { createContext, useContext, useState } from "react";
 
-// Create context
 const AuthContext = createContext();
-
-// Custom hook to use auth
 export const useAuth = () => useContext(AuthContext);
 
-// Provider component
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [participations, setParticipations] = useState([]);
@@ -21,9 +17,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider
-      value={{ user, login, logout, participations, registerEvent }}
-    >
+    <AuthContext.Provider value={{ user, login, logout, participations, registerEvent }}>
       {children}
     </AuthContext.Provider>
   );
